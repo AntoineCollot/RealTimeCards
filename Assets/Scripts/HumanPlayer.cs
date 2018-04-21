@@ -20,7 +20,7 @@ public class HumanPlayer : Player {
     void Update()
     {
         //Look for player's input for each card in hand
-        for (int i = 0; i < hand.cards.Count; i++)
+        for (int i = 0; i <GameSettings.maxHandCardCount; i++)
         {
             ProcessCardInput(i);
         }
@@ -29,18 +29,18 @@ public class HumanPlayer : Player {
     void ProcessCardInput(int id)
     {
         //Do nothing if the id is greater than the number of card we have
-        if (id >= hand.cards.Count)
+        if (id >= hand.cardCount)
             return;
 
         if (Input.GetButtonDown("PlayCard" + (id+1)))
         {
-            hand.selectedCard = hand.cards[id];
+            hand.selectedCardId = id;
 
-            //pointerOverlay.SetOverlay(hand.selectedCard.GetOverlay());
+            pointerOverlay.SetOverlay(hand.cards[id].overlay);
         }
         if (Input.GetButtonUp("PlayCard" + (id+1)))
         {
-            if (hand.selectedCard == hand.cards[id])
+            if (hand.selectedCardId == id)
             {
                 hand.PlaySelectedCard(GetPlayPosition());
                 pointerOverlay.ClearOverlay();

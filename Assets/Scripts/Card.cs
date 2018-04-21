@@ -4,8 +4,11 @@ using UnityEngine;
 
 public abstract class Card : ScriptableObject {
 
-    [Header("General")]
+    public enum Type { Monster, Spell, Environment }
 
-    public float castTime;
+    [Header("General")]
+    public Type type;
+
+    public Sprite overlay;
 
 }

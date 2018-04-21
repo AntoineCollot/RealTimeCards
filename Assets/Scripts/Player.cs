@@ -10,4 +10,9 @@ public class Player : MonoBehaviour {
 	protected virtual void Awake () {
         hand = GetComponent<Hand>();
     }
+
+    public void DrawACard()
+    {
+        hand.DrawFromDeck();
+    }
 }

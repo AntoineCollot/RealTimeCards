@@ -8,7 +8,5 @@ public class CardSpell : Card {
 
     [Header("Spell")]
 
-    public Sprite overlay;
-
-    public Transform effect;
+    public Transform effectPrefab;
 }

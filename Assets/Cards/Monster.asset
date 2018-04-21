@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be24e2b006847d0439ef90ee08d212ea, type: 3}
+  m_Name: Monster
+  m_EditorClassIdentifier: 
+  type: 0
+  castTime: 0
+  overlay: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  monsterPrefab: {fileID: 114085402127407178, guid: d0b2031fac3875a489d4601caa5c64d2,
+    type: 2}

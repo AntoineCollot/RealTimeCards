@@ -18,6 +18,19 @@ public class Board : MonoBehaviour {
         if (!PlayArea.Instance.Contains(position))
             return;
 
-
+        switch (card.type)
+        {
+            case Card.Type.Monster:
+                CardMonster c = (CardMonster)card;
+                Health newMonster = Instantiate(c.monsterPrefab, position,Quaternion.identity);
+                livingObjects.Add(newMonster);
+                break;
+            case Card.Type.Spell:
+                break;
+            case Card.Type.Environment:
+                break;
+            default:
+                break;
+        }
     }
 }

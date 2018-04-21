@@ -8,6 +8,8 @@ public class Health : MonoBehaviour {
     [HideInInspector]
     public int currentHP;
 
+    public int targetedBy = 0;
+
 	// Use this for initialization
 	void Start () {
         currentHP = maxHP;
@@ -25,6 +27,7 @@ public class Health : MonoBehaviour {
 
     public void Die()
     {
+        Board.Instance.livingObjects.Remove(this);
         Destroy(gameObject);
     }
 }

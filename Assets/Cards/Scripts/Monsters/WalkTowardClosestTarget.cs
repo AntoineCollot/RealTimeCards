@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class WalkTowardClosestTarget : MonoBehaviour {
 
-    [Header("Target")]
-
-    [SerializeField]
-    LayerMask targetsLayer;
-
     Health target;
 
     [Header("Movement")]
@@ -55,20 +50,43 @@ public class WalkTowardClosestTarget : MonoBehaviour {
     bool FindTarget()
     {
         float minDistance = Mathf.Infinity;
-        foreach(Health h in Board.Instance.livingObjects)
-        {
-            //Do not take allies into account
-            if (h.tag == transform.tag)
-                continue;
+        Health newTarget = null;
+        int targetTargetedBy = 0;
 
-            float dist = Vector2.Distance(transform.position, h.transform.position);
-            if (dist <= minDistance)
+        while(newTarget==null && targetTargetedBy<4)
+        {
+            foreach (Health h in Board.Instance.livingObjects)
             {
-                minDistance = dist;
-                target = h;
+                //Do not take allies into account
+                if (h.tag == transform.tag || h.targetedBy>targetTargetedBy)
+                    continue;
+
+                float dist = Vector2.Distance(transform.position, h.transform.position);
+                if (dist <= minDistance)
+                {
+                    minDistance = dist;
+                    newTarget = h;
+                }
             }
+
+            targetTargetedBy++;
         }
 
-        return target != null;
+        SetTarget(newTarget);
+        return newTarget != null;
+    }
+
+    void SetTarget(Health h)
+    {
+        if (target != null)
+            target.targetedBy--;
+        target = h;
+        if (target != null)
+            target.targetedBy++;
+    }
+
+    public void Die()
+    {
+        SetTarget(null);
     }
 }

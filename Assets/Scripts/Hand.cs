@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour {
 
-    [HideInInspector]
     public List<Card> cards = new List<Card>();
 
-    [HideInInspector]
     public Card selectedCard;
 
+    [HideInInspector]
+    public Graveyard graveyard;
+
     // Use this for initialization
-    void Start () {
-		
-	}
-
-
+    void Awake () {
+        graveyard = GetComponent<Graveyard>();
+    }
 
     public void PlaySelectedCard(Vector2 position)
     {
-        selectedCard.Play(position);
+        if (!PlayArea.Instance.Contains(position))
+            return;
+
+        //Remove the card from the hand
+        cards.Remove(selectedCard);
+
+        //play the card
+        Board.Instance.PlayCard(selectedCard,position);
+
+        //Add the card to the graveyard
+        graveyard.Add(selectedCard);
         selectedCard = null;
     }
+
 }

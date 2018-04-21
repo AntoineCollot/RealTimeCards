@@ -14,6 +14,11 @@ public class PlayArea : MonoBehaviour {
         Instance = this;
 	}
 
+    public bool Contains(Vector2 position)
+    {
+        return Mathf.Abs(position.x) < (width * 0.5f) && Mathf.Abs(position.y) < (height * 0.5f);
+    }
+
     public Vector2 GetRandomPosition()
     {
         return new Vector2(Random.Range(-width, width) * 0.5f, Random.Range(-height, height) * 0.5f);

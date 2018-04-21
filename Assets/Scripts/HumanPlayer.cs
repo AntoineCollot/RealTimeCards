@@ -6,11 +6,14 @@ public class HumanPlayer : Player {
 
     Camera cam;
 
+    PointerOverlay pointerOverlay;
+
 	// Use this for initialization
 	protected override void Awake () {
         base.Awake();
 
         cam = Camera.main;
+        pointerOverlay = GetComponentInChildren<PointerOverlay>();
 	}
 
     // Update is called once per frame
@@ -29,20 +32,23 @@ public class HumanPlayer : Player {
         if (id >= hand.cards.Count)
             return;
 
-        if (Input.GetButtonDown("PlayCard" + id))
+        if (Input.GetButtonDown("PlayCard" + (id+1)))
         {
             hand.selectedCard = hand.cards[id];
+
+            //pointerOverlay.SetOverlay(hand.selectedCard.GetOverlay());
         }
-        if (Input.GetButtonUp("PlayCard" + id))
+        if (Input.GetButtonUp("PlayCard" + (id+1)))
         {
             if (hand.selectedCard == hand.cards[id])
             {
                 hand.PlaySelectedCard(GetPlayPosition());
+                pointerOverlay.ClearOverlay();
             }
         }
     }
 
-    Vector2 GetPlayPosition()
+    public Vector2 GetPlayPosition()
     {
         return cam.ScreenToWorldPoint(Input.mousePosition);
     }

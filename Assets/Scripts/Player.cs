@@ -9,5 +9,5 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Awake () {
         hand = GetComponent<Hand>();
-	}
+    }
 }

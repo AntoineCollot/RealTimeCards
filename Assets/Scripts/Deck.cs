@@ -8,9 +8,17 @@ public class Deck : MonoBehaviour {
 
     public Card Draw()
     {
+        if (cards.Count <= 0)
+            return null;
+
         Card topCard = cards[0];
         cards.RemoveAt(0);
         return topCard;
+    }
+
+    void Start()
+    {
+        Shuffle();
     }
 
     public void Shuffle()

@@ -8,6 +8,22 @@ public class PointerOverlay : MonoBehaviour {
 
     HumanPlayer player;
 
+    [Header("Color")]
+
+    public Color authorizedColor;
+    public Color forbiddenColor;
+
+    public bool authorizedPlay
+    {
+        set
+        {
+            if(value)
+                spriteRenderer.color = authorizedColor;
+            else
+                spriteRenderer.color = forbiddenColor;
+        }
+    }
+
 	// Use this for initialization
 	void Awake () {
         spriteRenderer = GetComponent<SpriteRenderer>();

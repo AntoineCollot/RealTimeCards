@@ -7,5 +7,7 @@ public class CardMonster : Card {
 
     [Header("Monster")]
 
+    public int hp;
+
     public Health monsterPrefab;
 }

@@ -24,12 +24,14 @@ public class HumanPlayer : Player {
         {
             ProcessCardInput(i);
         }
+
+        pointerOverlay.authorizedPlay = hand.CanPlaySelectedCardThere(GetPlayPosition());
+
     }
 
     void ProcessCardInput(int id)
     {
-        //Do nothing if the id is greater than the number of card we have
-        if (id >= hand.cardCount)
+        if (hand.cards[id]==null)
             return;
 
         if (Input.GetButtonDown("PlayCard" + (id+1)))

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b618c9a1248a44ab81ea3c3df041c2, type: 3}
+  m_Name: Spell Teleport
+  m_EditorClassIdentifier: 
+  name: Teleport
+  type: 1
+  overlay: {fileID: 21300002, guid: 348ecca89792c964097299f1136954cf, type: 3}
+  power: 0
+  image: {fileID: 21300000, guid: 348ecca89792c964097299f1136954cf, type: 3}
+  effectPrefab: {fileID: 4092730073923958, guid: dc7115b5435b9a84e8218865681922d4,
+    type: 2}

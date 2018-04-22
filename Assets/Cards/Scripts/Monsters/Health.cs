@@ -21,6 +21,8 @@ public class Health : MonoBehaviour {
 
         currentHP -= amount;
 
+        DamageTextSpawner.Instance.SpawnDamage(amount, transform.position);
+
         if (currentHP <= 0)
             gameObject.SendMessage("Die");
     }

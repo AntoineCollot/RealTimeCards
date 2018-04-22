@@ -17,9 +17,25 @@ public class WalkTowardClosestTarget : MonoBehaviour {
 
     bool isAttacking;
 
+    [Header("Start Delay")]
+
+    public float spawnDelay;
+
+    bool finishedSpawning = false;
+
+    void Start()
+    {
+        Invoke("FinishedSpawning", spawnDelay);
+    }
+
+    void FinishedSpawning()
+    {
+        finishedSpawning = true;
+    }
+
 	// Update is called once per frame
 	void Update () {
-        if (isAttacking)
+        if (isAttacking || !finishedSpawning)
             return;
 
         if (target == null)
@@ -53,7 +69,7 @@ public class WalkTowardClosestTarget : MonoBehaviour {
         Health newTarget = null;
         int targetTargetedBy = 0;
 
-        while(newTarget==null && targetTargetedBy<4)
+        while(newTarget==null && targetTargetedBy<7)
         {
             foreach (Health h in Board.Instance.livingObjects)
             {
@@ -88,5 +104,12 @@ public class WalkTowardClosestTarget : MonoBehaviour {
     public void Die()
     {
         SetTarget(null);
+    }
+
+    public void OnDisplaced()
+    {
+        if(target!=null)
+            target.targetedBy--;
+        target = null;
     }
 }

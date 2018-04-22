@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour {
 
-    public List<Card> cards = new List<Card>();
+    [SerializeField]
+    DeckCard[] cardsInDeck;
+
+    List<Card> cards;
 
     public Card Draw()
     {
@@ -18,6 +21,16 @@ public class Deck : MonoBehaviour {
 
     void Start()
     {
+        cards = new List<Card>();
+
+        foreach(DeckCard c in cardsInDeck)
+        {
+            for (int i = 0; i < c.count; i++)
+            {
+                cards.Add(c.card);
+            }
+        }
+
         Shuffle();
     }
 
@@ -30,5 +43,12 @@ public class Deck : MonoBehaviour {
             cards[i] = cards[randomId];
             cards[randomId] = shuffledCard;
         }
+    }
+
+    [System.Serializable]
+    public struct DeckCard
+    {
+        public Card card;
+        public int count;
     }
 }

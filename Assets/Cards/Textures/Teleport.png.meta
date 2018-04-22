@@ -1,20 +1,11 @@
 fileFormatVersion: 2
-guid: 0cbd545c7e6a082449dddb2847e2ae1a
-timeCreated: 1524432264
+guid: 348ecca89792c964097299f1136954cf
+timeCreated: 1524435781
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DarkMage_0
-    21300002: DarkMage_1
-    21300004: DarkMage_2
-    21300006: DarkMage_3
-    21300008: DarkMage_Attack1
-    21300010: DarkMage_Attack2
-    21300012: DarkMage_Overlay
-    21300014: DarkMage_Magic0
-    21300016: DarkMage_Magic1
-    21300018: DarkMage_Magic2
-    21300020: DarkMage_Magic3
+    21300000: Teleport_Icon
+    21300002: Teleport_Overlay
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -57,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -107,63 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DarkMage_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DarkMage_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DarkMage_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DarkMage_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DarkMage_Attack1
+      name: Teleport_Icon
       rect:
         serializedVersion: 2
         x: 0
@@ -177,27 +112,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DarkMage_Attack2
+      name: Teleport_Overlay
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.65}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DarkMage_Overlay
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 33
+        y: 1
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

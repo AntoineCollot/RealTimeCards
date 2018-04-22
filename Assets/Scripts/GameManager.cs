@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour {
     public void Loose()
     {
         enabled = false;
-        panelLoss.SetActive(false);
+        panelLoss.SetActive(true);
         gameIsOver = true;
     }
 }

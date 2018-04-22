@@ -15,6 +15,7 @@ MonoBehaviour:
   type: 0
   overlay: {fileID: 21300000, guid: 8912f110f32796f4bb2e20254019ef9e, type: 3}
   power: 1
+  image: {fileID: 21300002, guid: 8912f110f32796f4bb2e20254019ef9e, type: 3}
   hp: 3
   monsterPrefab: {fileID: 114975315251183452, guid: 62c4680069ab49d48912844d5e154997,
     type: 2}

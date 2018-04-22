@@ -22,7 +22,8 @@ public class Hand : MonoBehaviour {
         }
     }
 
-    public int selectedCardId;
+    //[HideInInspector]
+    public int selectedCardId = -1;
 
     [HideInInspector]
     public Graveyard graveyard;
@@ -47,9 +48,23 @@ public class Hand : MonoBehaviour {
         UpdateCardDisplay();
     }
 
+    void Update()
+    {
+        for(int i=0;i<cardDisplays.Length;i++)
+        {
+            if (i == selectedCardId)
+                cardDisplays[i].transform.localScale = Vector3.one * 1.2f;
+            else
+                cardDisplays[i].transform.localScale = Vector3.one;
+        }
+    }
+
     public void PlaySelectedCard(Vector2 position,Color color = default(Color))
     {
+        if (selectedCardId < 0)
+            return;
         PlayCard(selectedCardId, position,color);
+        selectedCardId = -1;
     }
 
     public void PlayCard(int id,Vector2 position, Color color = default(Color))
@@ -57,10 +72,10 @@ public class Hand : MonoBehaviour {
         if (!CanPlayCardThere(id,position))
             return;
 
-        Card playCard = cards[selectedCardId];
+        Card playCard = cards[id];
 
         //Remove the card from the hand
-        cards[selectedCardId] = null;
+        cards[id] = null;
 
         //play the card
         Board.Instance.PlayCard(playCard, position,gameObject,color);
@@ -99,6 +114,8 @@ public class Hand : MonoBehaviour {
 
     public bool CanPlaySelectedCardThere(Vector2 position)
     {
+        if (selectedCardId < 0)
+            return false;
         return CanPlayCardThere(selectedCardId, position);
     }
 

@@ -15,4 +15,6 @@ public abstract class Card : ScriptableObject {
 
     public int power;
 
+    public Sprite image;
+
 }

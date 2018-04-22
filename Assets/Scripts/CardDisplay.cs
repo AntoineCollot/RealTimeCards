@@ -23,6 +23,9 @@ public class CardDisplay : MonoBehaviour {
     [SerializeField]
     Text textName;
 
+    [SerializeField]
+    Image image;
+
     public Card card
     {
         set
@@ -33,6 +36,8 @@ public class CardDisplay : MonoBehaviour {
 
             if (value != null)
             {
+                image.sprite = value.image;
+
                 textName.text = value.name;
 
                 textPower.text = value.power.ToString();

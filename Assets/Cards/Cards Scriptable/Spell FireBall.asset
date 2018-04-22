@@ -15,5 +15,6 @@ MonoBehaviour:
   type: 1
   overlay: {fileID: 21300004, guid: 549f886bc2f34a344bfbe22541276cfb, type: 3}
   power: 3
+  image: {fileID: 21300004, guid: 549f886bc2f34a344bfbe22541276cfb, type: 3}
   effectPrefab: {fileID: 4667026813637612, guid: 36290c9fe85b5274cb899cea1f1fa50a,
     type: 2}

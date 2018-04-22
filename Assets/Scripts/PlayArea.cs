@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayArea : MonoBehaviour {
 
-    public float height;
-    public float width;
+    public int height;
+    public int width;
 
     public static PlayArea Instance;
 

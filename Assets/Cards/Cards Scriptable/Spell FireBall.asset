@@ -9,9 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72b618c9a1248a44ab81ea3c3df041c2, type: 3}
-  m_Name: FireBall
+  m_Name: Spell FireBall
   m_EditorClassIdentifier: 
+  name: FireBall
   type: 1
-  castTime: 0
-  overlay: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  effectPrefab: {fileID: 0}
+  overlay: {fileID: 21300004, guid: 549f886bc2f34a344bfbe22541276cfb, type: 3}
+  power: 3
+  effectPrefab: {fileID: 4667026813637612, guid: 36290c9fe85b5274cb899cea1f1fa50a,
+    type: 2}

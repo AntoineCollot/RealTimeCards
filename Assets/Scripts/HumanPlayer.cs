@@ -26,7 +26,6 @@ public class HumanPlayer : Player {
         }
 
         pointerOverlay.authorizedPlay = hand.CanPlaySelectedCardThere(GetPlayPosition());
-
     }
 
     void ProcessCardInput(int id)
@@ -44,7 +43,7 @@ public class HumanPlayer : Player {
         {
             if (hand.selectedCardId == id)
             {
-                hand.PlaySelectedCard(GetPlayPosition());
+                hand.PlaySelectedCard(GetPlayPosition(),color);
                 pointerOverlay.ClearOverlay();
             }
         }

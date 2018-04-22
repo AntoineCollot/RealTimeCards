@@ -28,13 +28,17 @@ public class Hand : MonoBehaviour {
     public Graveyard graveyard;
 
     Deck deck;
-    PlayerPlayArea localPlayArea;
+    [HideInInspector]
+    public PlayerPlayArea localPlayArea;
+
+    Animator anim;
 
     // Use this for initialization
     void Awake () {
         graveyard = GetComponent<Graveyard>();
         deck = GetComponent<Deck>();
         localPlayArea = GetComponent<PlayerPlayArea>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -43,9 +47,14 @@ public class Hand : MonoBehaviour {
         UpdateCardDisplay();
     }
 
-    public void PlaySelectedCard(Vector2 position)
+    public void PlaySelectedCard(Vector2 position,Color color = default(Color))
     {
-        if (!CanPlaySelectedCardThere(position))
+        PlayCard(selectedCardId, position,color);
+    }
+
+    public void PlayCard(int id,Vector2 position, Color color = default(Color))
+    {
+        if (!CanPlayCardThere(id,position))
             return;
 
         Card playCard = cards[selectedCardId];
@@ -54,12 +63,15 @@ public class Hand : MonoBehaviour {
         cards[selectedCardId] = null;
 
         //play the card
-        Board.Instance.PlayCard(playCard, position);
+        Board.Instance.PlayCard(playCard, position,gameObject,color);
 
         //Add the card to the graveyard
         graveyard.Add(playCard);
 
         UpdateCardDisplay();
+
+        if(anim!=null)
+            anim.SetTrigger("Cast");
     }
 
     public void DrawFromDeck()
@@ -87,11 +99,46 @@ public class Hand : MonoBehaviour {
 
     public bool CanPlaySelectedCardThere(Vector2 position)
     {
-        if (cards[selectedCardId] == null)
+        return CanPlayCardThere(selectedCardId, position);
+    }
+
+    public bool CanPlayCardThere(int id,Vector2 position)
+    {
+        if (cards[id] == null)
             return false;
-        if (cards[selectedCardId].type == Card.Type.Monster)
+        if (cards[id].type == Card.Type.Monster)
             return localPlayArea.Contains(position);
         else
             return PlayArea.Instance.Contains(position);
+    }
+
+    public Card GetRandomCard()
+    {
+        List<Card> availableCards = new List<Card>();
+        for (int i = 0; i < cards.Length; i++)
+        {
+            if (cards[i] != null)
+                availableCards.Add(cards[i]);
+        }
+
+        if (availableCards.Count == 0)
+            return null;
+        else
+            return availableCards[Random.Range(0, availableCards.Count)];
+    }
+
+    public int GetRandomCardId()
+    {
+        List<int> availableCardsId = new List<int>();
+        for (int i = 0; i < cards.Length; i++)
+        {
+            if (cards[i] != null)
+                availableCardsId.Add(i);
+        }
+
+        if (availableCardsId.Count == 0)
+            return -1;
+        else
+            return availableCardsId[Random.Range(0, availableCardsId.Count)];
     }
 }

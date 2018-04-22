@@ -9,10 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be24e2b006847d0439ef90ee08d212ea, type: 3}
-  m_Name: Monster
+  m_Name: Monster DarkMage
   m_EditorClassIdentifier: 
+  name: Dark Mage
   type: 0
-  castTime: 0
-  overlay: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  monsterPrefab: {fileID: 114085402127407178, guid: d0b2031fac3875a489d4601caa5c64d2,
+  overlay: {fileID: 21300012, guid: 0cbd545c7e6a082449dddb2847e2ae1a, type: 3}
+  power: 1
+  hp: 1
+  monsterPrefab: {fileID: 114093155187764150, guid: 2862a21cfffe1cc44869aa2bc3adf71a,
     type: 2}

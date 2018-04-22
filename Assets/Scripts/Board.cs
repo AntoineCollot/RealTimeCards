@@ -13,19 +13,24 @@ public class Board : MonoBehaviour {
         Instance = this;
 	}
 
-    public void PlayCard(Card card, Vector2 position)
+    public void PlayCard(Card card, Vector2 position,GameObject summoner, Color color = default(Color))
     {
-        if (!PlayArea.Instance.Contains(position))
+        if (!PlayArea.Instance.Contains(position) || card==null)
             return;
 
         switch (card.type)
         {
             case Card.Type.Monster:
-                CardMonster c = (CardMonster)card;
-                Health newMonster = Instantiate(c.monsterPrefab, position,Quaternion.identity);
+                CardMonster cm = (CardMonster)card;
+                Health newMonster = Instantiate(cm.monsterPrefab, position,Quaternion.identity);
                 livingObjects.Add(newMonster);
+                newMonster.GetComponentInChildren<SpriteRenderer>().color = color;
+                newMonster.tag = summoner.tag;
                 break;
             case Card.Type.Spell:
+                CardSpell cs = (CardSpell)card;
+                Transform spell = Instantiate(cs.effectPrefab, position, Quaternion.identity);
+                spell.tag = summoner.tag;
                 break;
             case Card.Type.Environment:
                 break;

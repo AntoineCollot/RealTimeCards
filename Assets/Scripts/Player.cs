@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 
     protected Hand hand;
 
+    public Color color;
+
 	// Use this for initialization
 	protected virtual void Awake () {
         hand = GetComponent<Hand>();

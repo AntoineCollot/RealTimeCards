@@ -6058,8 +6058,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0.5514706, b: 0.5514706, a: 1}
-  minPlayACardChance: 0.3
+  minPlayACardChance: 0.2
   maxPlayACardChance: 30
+  maxLoosingMultiplier: 10
   monsterSpawnDistance: 2
 --- !u!114 &1432077661
 MonoBehaviour:

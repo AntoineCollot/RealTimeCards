@@ -7,6 +7,8 @@ public class PlayerAI : Player {
     public float minPlayACardChance;
     public float maxPlayACardChance;
 
+    public float maxLoosingMultiplier;
+
     public float monsterSpawnDistance;
 
     void Update()
@@ -17,7 +19,23 @@ public class PlayerAI : Player {
 
         float rand = Random.Range(0, 1.0f);
 
-        if(rand<=Mathf.Lerp(minPlayACardChance,maxPlayACardChance, cardCount / GameSettings.maxHandCardCount)*Time.deltaTime)
+        //Play more cards when loosing
+        int monsterDiff = 0;
+        foreach (Health h in Board.Instance.livingObjects)
+        {
+            if (h.tag == tag)
+            {
+                monsterDiff--;
+            }
+            else
+            {
+                monsterDiff++;
+            }
+        }
+       
+        float loosingMultiplier = Mathf.Lerp(1, maxLoosingMultiplier,(float)Mathf.Max(monsterDiff,0)/ Board.Instance.livingObjects.Count);
+
+        if(rand<=Mathf.Lerp(minPlayACardChance,maxPlayACardChance, cardCount / GameSettings.maxHandCardCount)*Time.deltaTime* loosingMultiplier)
         {
             PlayRandomCard();
         }
